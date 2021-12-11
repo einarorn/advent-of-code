@@ -1,5 +1,11 @@
 package day1
 
+import (
+	"advent-of-code/resource_provider"
+	"fmt"
+	"strconv"
+)
+
 func measurementIncreases(measurements []int) int {
 	count := 0
 	previous := measurements[0]
@@ -15,5 +21,17 @@ func measurementIncreases(measurements []int) int {
 }
 
 func sonarSweep(filename string) []int {
-	return []int{}
+	var measurements []int
+	input, _ := resource_provider.ReadAllLines(filename)
+
+	for _, value := range input {
+		number, err := strconv.Atoi(value)
+		if err != nil {
+			fmt.Printf("Unable to convert value to int: %v\n", err)
+			return []int{}
+		}
+		measurements = append(measurements, number)
+	}
+
+	return measurements
 }
