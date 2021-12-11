@@ -6,6 +6,10 @@ import (
 	"strconv"
 )
 
+func FindSantaSleighKeysDepth(filename string) int {
+	return -1
+}
+
 func measurementIncreases(measurements []int) int {
 	count := 0
 	previous := measurements[0]
