@@ -1,7 +1,6 @@
 package day1
 
 import (
-	"advent-of-code/resource_provider"
 	"fmt"
 	"strconv"
 )
@@ -24,9 +23,8 @@ func measurementIncreases(measurements []int) int {
 	return count
 }
 
-func sonarSweep(filename string) []int {
+func sonarSweep(input []string) []int {
 	var measurements []int
-	input, _ := resource_provider.ReadAllLines(filename)
 
 	for _, value := range input {
 		number, err := strconv.Atoi(value)
