@@ -13,3 +13,7 @@ func measurementIncreases(measurements []int) int {
 
 	return count
 }
+
+func sonarSweep(filename string) []int {
+	return []int{}
+}

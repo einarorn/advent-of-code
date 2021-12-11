@@ -32,3 +32,15 @@ func TestSubmarine_MeasurementIncreases(t *testing.T) {
 		is.Equal(increase, 9)
 	})
 }
+
+func TestSubmarine_SonarSweep(t *testing.T) {
+	is := is.New(t)
+
+	t.Run("Given we receive an input of 10 lines When we read all of them and they are all numeric Then we return corresponding array", func(t *testing.T) {
+		expected := []int{199, 200, 208, 210, 200, 207, 240, 269, 260, 263}
+
+		measurements := sonarSweep("sample.txt")
+
+		is.Equal(measurements, expected)
+	})
+}
