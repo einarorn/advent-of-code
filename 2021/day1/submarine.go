@@ -32,8 +32,25 @@ func measurementIncreases(measurements []int) int {
 	return count
 }
 
-func measurementSlidingWindow(measurements []int, size int) []int {
-	return nil
+func measurementSlidingWindow(measurements []int, windowLen int) []int {
+	var sliding []int
+	arrayLen := len(measurements)
+
+	if arrayLen < windowLen {
+		return []int{}
+	}
+
+	for i := 0; i < arrayLen; i++ {
+		if i+windowLen <= arrayLen {
+			sum := 0
+			for j := i; j < i+windowLen; j++ {
+				sum += measurements[j]
+			}
+			sliding = append(sliding, sum)
+		}
+	}
+
+	return sliding
 }
 
 func sonarSweep(input []string) []int {
