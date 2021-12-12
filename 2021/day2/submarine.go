@@ -52,7 +52,20 @@ func calculatePositionAndDepth(commands []Commands) (int, int) {
 }
 
 func calculatePositionAndDepthV2(commands []Commands) (int, int) {
-	var position, depth int
+	var position, depth, aim int
+
+	for _, command := range commands {
+		if command.Action == string(FORWARD) {
+			position += command.Value
+			depth += command.Value * aim
+		} else {
+			if command.Action == string(DOWN) {
+				aim += command.Value
+			} else if command.Action == string(UP) {
+				aim -= command.Value
+			}
+		}
+	}
 
 	return position, depth
 }
