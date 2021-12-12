@@ -6,7 +6,7 @@ import (
 	"strconv"
 )
 
-func FindSantaSleighKeysDepth(filename string) int {
+func FindSantaSleighKeysDepth(filename string, slidingWindow int) int {
 	input, err := resource_provider.ReadAllLines(filename)
 	if err != nil {
 		fmt.Println(err)
