@@ -20,15 +20,21 @@ type Commands struct {
 	Value int
 }
 
-func LocateSantaSub(filename string) int {
+func LocateSantaSub(filename string, isComplex bool) int {
 	input, err := resource_provider.ReadAllLines(filename)
 	if err != nil {
 		fmt.Println(err)
 		return -1
 	}
 
+	var position, depth int
+
 	commands := receiveCommands(input)
-	position, depth := calculatePositionAndDepth(commands)
+	if isComplex {
+		position, depth = calculatePositionAndDepthV2(commands)
+	} else {
+		position, depth = calculatePositionAndDepth(commands)
+	}
 
 	return position*depth
 }
