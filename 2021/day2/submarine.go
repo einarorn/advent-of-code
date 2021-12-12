@@ -20,7 +20,21 @@ type Commands struct {
 }
 
 func calculatePositionAndDepth(commands []Commands) (int, int) {
-	return -1, -1
+	var position, depth int
+
+	for _, command := range commands {
+		if command.Action == string(FORWARD) {
+			position += command.Value
+		} else {
+			if command.Action == string(DOWN) {
+				depth += command.Value
+			} else if command.Action == string(UP) {
+				depth -= command.Value
+			}
+		}
+	}
+
+	return position, depth
 }
 
 func receiveCommands(input []string) []Commands {
