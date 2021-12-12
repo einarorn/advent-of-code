@@ -19,6 +19,10 @@ type Commands struct {
 	Value int
 }
 
+func LocateSantaSub(filename string) int {
+	return 0
+}
+
 func calculatePositionAndDepth(commands []Commands) (int, int) {
 	var position, depth int
 

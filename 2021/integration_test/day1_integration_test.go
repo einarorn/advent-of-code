@@ -1,4 +1,4 @@
-package integration_test_test
+package integration_test
 
 import (
 	"advent-of-code/2021/day1"
