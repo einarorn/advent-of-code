@@ -13,6 +13,11 @@ func FindSantaSleighKeysDepth(filename string, slidingWindow int) int {
 		return -1
 	}
 	measurements := sonarSweep(input)
+
+	if slidingWindow != 0 {
+		measurements = measurementSlidingWindow(measurements, slidingWindow)
+	}
+
 	increases := measurementIncreases(measurements)
 
 	return increases
