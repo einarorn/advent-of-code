@@ -1,5 +1,11 @@
 package day2
 
+import (
+	"fmt"
+	"strconv"
+	"strings"
+)
+
 type Command string
 
 const (
@@ -13,6 +19,22 @@ type Commands struct {
 	Value int
 }
 
-func receiveCommands(commands []string) []Commands {
-	return nil
+func receiveCommands(input []string) []Commands {
+	var commands []Commands
+
+	for _, line := range input {
+		values := strings.Fields(line)
+		action := values[0]
+		value, err := strconv.Atoi(values[1])
+		if err != nil {
+			fmt.Println(err)
+		}
+
+		commands = append(commands, Commands{
+			Action: action,
+			Value:  value,
+		})
+	}
+
+	return commands
 }
