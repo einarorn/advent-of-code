@@ -51,6 +51,12 @@ func calculatePositionAndDepth(commands []Commands) (int, int) {
 	return position, depth
 }
 
+func calculatePositionAndDepthV2(commands []Commands) (int, int) {
+	var position, depth int
+
+	return position, depth
+}
+
 func receiveCommands(input []string) []Commands {
 	var commands []Commands
 

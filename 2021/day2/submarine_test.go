@@ -18,6 +18,19 @@ func TestSubmarine_CalculatePositionAndDepth(t *testing.T) {
 	})
 }
 
+func TestSubmarine_CalculatePositionAndDepthV2(t *testing.T) {
+	is := is.New(t)
+
+	t.Run("Given we receive series of commands When we have calculated them Then we will have the correct position and depth", func(t *testing.T) {
+		commands := sampleCommands()
+
+		position, depth := calculatePositionAndDepthV2(commands)
+
+		is.Equal(position, 15)
+		is.Equal(depth, 60)
+	})
+}
+
 func TestSubmarine_ReceiveCommands(t *testing.T) {
 	is := is.New(t)
 
