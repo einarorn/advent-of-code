@@ -19,6 +19,10 @@ type Commands struct {
 	Value int
 }
 
+func calculatePositionAndDepth(commands []Commands) (int, int) {
+	return -1, -1
+}
+
 func receiveCommands(input []string) []Commands {
 	var commands []Commands
 
