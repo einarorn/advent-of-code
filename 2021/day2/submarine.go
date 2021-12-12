@@ -1,6 +1,7 @@
 package day2
 
 import (
+	"advent-of-code/resource_provider"
 	"fmt"
 	"strconv"
 	"strings"
@@ -20,7 +21,16 @@ type Commands struct {
 }
 
 func LocateSantaSub(filename string) int {
-	return 0
+	input, err := resource_provider.ReadAllLines(filename)
+	if err != nil {
+		fmt.Println(err)
+		return -1
+	}
+
+	commands := receiveCommands(input)
+	position, depth := calculatePositionAndDepth(commands)
+
+	return position*depth
 }
 
 func calculatePositionAndDepth(commands []Commands) (int, int) {
