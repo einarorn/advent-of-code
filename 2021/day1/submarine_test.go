@@ -33,6 +33,27 @@ func TestSubmarine_MeasurementIncreases(t *testing.T) {
 	})
 }
 
+func TestSubmarine_MeasurementSlidingWindow(t *testing.T) {
+	is := is.New(t)
+
+	t.Run("Given we receive a set of measurements When they have been converted into a three-measurement sliding window Then we return the corresponding sums", func(t *testing.T) {
+		measurements := []int{100, 200, 300, 400, 500}
+		expected := []int{600, 900, 1200}
+
+		slidingWindow := measurementSlidingWindow(measurements, 3)
+
+		is.Equal(slidingWindow, expected)
+	})
+
+	t.Run("Given we receive a set measurements When they are less then the sliding window Then we return an empty array", func(t *testing.T) {
+		measurements := []int{10, 20}
+
+		slidingWindow := measurementSlidingWindow(measurements, 3)
+
+		is.Equal(slidingWindow, []int{})
+	})
+}
+
 func TestSubmarine_SonarSweep(t *testing.T) {
 	is := is.New(t)
 
