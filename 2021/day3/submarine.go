@@ -1,11 +1,25 @@
 package day3
 
 import (
+	"advent-of-code/resource_provider"
+	"fmt"
 	"math"
 )
 
 func PowerConsumption(filename string) int {
-	return -1
+	input, err := resource_provider.ReadAllLines(filename)
+	if err != nil {
+		fmt.Println(err)
+		return -1
+	}
+
+	gammaRate := mostOrLeastCommonBit(input, true)
+	epsilonRate := mostOrLeastCommonBit(input, false)
+
+	gamma := convertBinaryToNumber(gammaRate)
+	epsilon := convertBinaryToNumber(epsilonRate)
+
+	return gamma * epsilon
 }
 
 func mostOrLeastCommonBit(report []string, mostCommon bool) string {
