@@ -4,6 +4,10 @@ import (
 	"math"
 )
 
+func mostOrLeastCommonBit(report []string, mostCommon bool) string {
+	return ""
+}
+
 func convertBinaryToNumber(binary string) int {
 	l := len(binary)
 	val := 0
