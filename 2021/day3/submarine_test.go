@@ -43,7 +43,7 @@ func TestSubmarine_MostCommonBitByValueHorizontally(t *testing.T) {
 		input := mockBitSample()
 		expected := "01010"
 
-		actual := mostOrLeastCommonBit(input, false)
+		actual := mostOrLeastCommonBitHorizontally(input, false)
 
 		is.Equal(actual, expected)
 	})
