@@ -32,8 +32,16 @@ func TestSubmarine_LifeSupportRating(t *testing.T) {
 	t.Run("Given we receive sample input When we calculate the support rating Then the value returned is 230", func(t *testing.T) {
 		expected := 230
 
-		power := day3.LifeSupportRating("day3-sample.txt")
+		lifeSupport := day3.LifeSupportRating("day3-sample.txt")
 
-		is.Equal(power, expected)
+		is.Equal(lifeSupport, expected)
+	})
+
+	t.Run("Given we receive Part Two input When we calculate the power consumption Then the value returned is 4856080", func(t *testing.T) {
+		expected := 4856080
+
+		lifeSupport := day3.LifeSupportRating("day3-part1.txt")
+
+		is.Equal(lifeSupport, expected)
 	})
 }
