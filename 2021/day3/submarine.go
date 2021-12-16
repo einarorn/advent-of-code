@@ -56,6 +56,10 @@ func mostOrLeastCommonBit(report []string, mostCommon bool) string {
 	return res
 }
 
+func mostOrLeastCommonBitHorizontally(report []string, mostCommon bool) string {
+	return ""
+}
+
 func convertBinaryToNumber(binary string) int {
 	val := 0
 	l := len(binary)

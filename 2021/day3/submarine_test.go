@@ -8,7 +8,7 @@ import (
 func TestSubmarine_MostOrLeastCommonBit(t *testing.T) {
 	is := is.New(t)
 
-	t.Run("Given receive a set of bits When we find the most common bit in each position Then we return the combined as one binary string", func(t *testing.T) {
+	t.Run("Given we receive a set of bits When we find the most common bit in each position Then we return the combined as one binary string", func(t *testing.T) {
 		input := []string{"10101", "11100", "00100", "10101"}
 		expected := "10101"
 
@@ -17,8 +17,30 @@ func TestSubmarine_MostOrLeastCommonBit(t *testing.T) {
 		is.Equal(actual, expected)
 	})
 
-	t.Run("Given receive a set of bits When we find the least common bit in each position Then we return the combined as one binary string", func(t *testing.T) {
+	t.Run("Given we receive a set of bits When we find the least common bit in each position Then we return the combined as one binary string", func(t *testing.T) {
 		input := []string{"10101", "11100", "00100", "10101"}
+		expected := "01010"
+
+		actual := mostOrLeastCommonBit(input, false)
+
+		is.Equal(actual, expected)
+	})
+}
+
+func TestSubmarine_MostCommonBitByValueHorizontally(t *testing.T) {
+	is := is.New(t)
+
+	t.Run("Given we receive a set of bits When we filter out horizontally by most common bit value Then we return the last remaining binary string", func(t *testing.T) {
+		input := mockBitSample()
+		expected := "10111"
+
+		actual := mostOrLeastCommonBitHorizontally(input, true)
+
+		is.Equal(actual, expected)
+	})
+
+	t.Run("Given we receive a set of bits When we filter out horizontally by least common bit value Then we return the last remaining binary string", func(t *testing.T) {
+		input := mockBitSample()
 		expected := "01010"
 
 		actual := mostOrLeastCommonBit(input, false)
@@ -65,4 +87,8 @@ func TestSubmarine_ConvertBinaryToNumber(t *testing.T) {
 
 		is.Equal(actual, expected)
 	})
+}
+
+func mockBitSample() []string {
+	return []string{"00100", "11110", "10110", "10111", "10101", "01111", "00111", "11100", "10000", "11001", "00010", "01010"}
 }
