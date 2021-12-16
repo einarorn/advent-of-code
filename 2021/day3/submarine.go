@@ -23,7 +23,19 @@ func PowerConsumption(filename string) int {
 }
 
 func LifeSupportRating(filename string) int {
-	return -1
+	input, err := resource_provider.ReadAllLines(filename)
+	if err != nil {
+		fmt.Println(err)
+		return -1
+	}
+
+	oxygenGeneratorRating := mostOrLeastCommonBitHorizontally(input, true)
+	co2ScrubberRating := mostOrLeastCommonBitHorizontally(input, false)
+
+	oxygenGenerator := convertBinaryToNumber(oxygenGeneratorRating)
+	co2Scrubber := convertBinaryToNumber(co2ScrubberRating)
+
+	return oxygenGenerator * co2Scrubber
 }
 
 func mostOrLeastCommonBit(report []string, mostCommon bool) string {
