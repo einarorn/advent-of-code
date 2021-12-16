@@ -22,6 +22,10 @@ func PowerConsumption(filename string) int {
 	return gamma * epsilon
 }
 
+func LifeSupportRating(filename string) int {
+	return -1
+}
+
 func mostOrLeastCommonBit(report []string, mostCommon bool) string {
 	res := ""
 	size := len(report[0])
@@ -64,7 +68,7 @@ func mostOrLeastCommonBitHorizontally(report []string, mostCommon bool) string {
 		if len(filterIn) == 1 {
 			break
 		}
-		
+
 		var activeBits []string
 		var inactiveBits []string
 

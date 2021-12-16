@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-func TestSubmarine_FindSantaSleighKeysDepth(t *testing.T) {
+func TestSubmarine_PowerConsumption(t *testing.T) {
 	is := is.New(t)
 
 	t.Run("Given we receive sample input When we calculate the power consumption Then the value returned is 198", func(t *testing.T) {
@@ -21,6 +21,18 @@ func TestSubmarine_FindSantaSleighKeysDepth(t *testing.T) {
 		expected := 3242606
 
 		power := day3.PowerConsumption("day3-part1.txt")
+
+		is.Equal(power, expected)
+	})
+}
+
+func TestSubmarine_LifeSupportRating(t *testing.T) {
+	is := is.New(t)
+
+	t.Run("Given we receive sample input When we calculate the support rating Then the value returned is 230", func(t *testing.T) {
+		expected := 230
+
+		power := day3.LifeSupportRating("day3-sample.txt")
 
 		is.Equal(power, expected)
 	})
