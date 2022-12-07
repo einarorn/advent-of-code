@@ -35,4 +35,5 @@ func main() {
 	})
 
 	fmt.Println(list[0])
+	fmt.Println(list[0].Calories + list[1].Calories + list[2].Calories)
 }
